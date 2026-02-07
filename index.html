@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Famelie Aura – Kinderschutz Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="app-kicker">Kinderschutz Suite</p>
+        <h1>Famelie Aura</h1>
+        <p class="app-subtitle">
+          Dein zentrales Cockpit für Geräte, Inhalte, Sicherheit und Wohlbefinden deiner Familie.
+        </p>
+      </div>
+      <div class="status-pill" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        Schutz aktiv · 3 Geräte verbunden
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Familienübersicht</h2>
+          <button class="btn">+ Neues Profil</button>
+        </div>
+        <div class="grid profiles" id="profiles"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Schnellaktionen</h2>
+          <div class="panel-actions">
+            <button class="btn ghost">Schutzbericht exportieren</button>
+            <button class="btn">Notfallmodus aktivieren</button>
+          </div>
+        </div>
+        <div class="grid actions" id="quick-actions"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Regeln &amp; Limits</h2>
+          <p class="panel-description">
+            Definiere Spielzeit, Inhaltsfilter und Ruhephasen – abgestimmt auf jedes Kind.
+          </p>
+        </div>
+        <div class="grid rules" id="rules"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Live Insights</h2>
+          <p class="panel-description">
+            Einblicke in Stimmung, Sicherheit und Online-Verhalten – in Echtzeit.
+          </p>
+        </div>
+        <div class="grid insights" id="insights"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div>
+        <strong>Famelie Aura</strong>
+        <p>Privacy by Design · Ende-zu-Ende Verschlüsselung · Transparente Kontrollen</p>
+      </div>
+      <div>
+        <button class="btn ghost">Support Chat</button>
+        <button class="btn">Sicherheitscheck starten</button>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

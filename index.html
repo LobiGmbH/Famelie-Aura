@@ -15,7 +15,7 @@
           Dein zentrales Cockpit für Geräte, Inhalte, Sicherheit und Wohlbefinden deiner Familie.
         </p>
       </div>
-      <div class="status-pill" aria-live="polite">
+      <div class="status-pill" aria-live="polite" id="system-status">
         <span class="dot" aria-hidden="true"></span>
         Schutz aktiv · 3 Geräte verbunden
       </div>
@@ -24,18 +24,28 @@
     <main>
       <section class="panel">
         <div class="panel-header">
-          <h2>Familienübersicht</h2>
-          <button class="btn">+ Neues Profil</button>
+          <div>
+            <h2>Familienübersicht</h2>
+            <p class="panel-description">
+              Verwalte Profile, Geräte und Tageslimits pro Kind – mit lokalem Speicher.
+            </p>
+          </div>
+          <button class="btn" id="add-profile">+ Neues Profil</button>
         </div>
         <div class="grid profiles" id="profiles"></div>
       </section>
 
       <section class="panel">
         <div class="panel-header">
-          <h2>Schnellaktionen</h2>
+          <div>
+            <h2>Schnellaktionen</h2>
+            <p class="panel-description">
+              Aktiviere Sofort-Schutz, sichere Zonen oder eine Schlafenszeit in einem Klick.
+            </p>
+          </div>
           <div class="panel-actions">
-            <button class="btn ghost">Schutzbericht exportieren</button>
-            <button class="btn">Notfallmodus aktivieren</button>
+            <button class="btn ghost" id="export-report">Schutzbericht exportieren</button>
+            <button class="btn" id="activate-emergency">Notfallmodus aktivieren</button>
           </div>
         </div>
         <div class="grid actions" id="quick-actions"></div>
@@ -43,20 +53,26 @@
 
       <section class="panel">
         <div class="panel-header">
-          <h2>Regeln &amp; Limits</h2>
-          <p class="panel-description">
-            Definiere Spielzeit, Inhaltsfilter und Ruhephasen – abgestimmt auf jedes Kind.
-          </p>
+          <div>
+            <h2>Regeln &amp; Limits</h2>
+            <p class="panel-description">
+              Definiere Spielzeit, Inhaltsfilter und Ruhephasen – abgestimmt auf jedes Kind.
+            </p>
+          </div>
+          <button class="btn ghost" id="add-rule">+ Neue Regel</button>
         </div>
         <div class="grid rules" id="rules"></div>
       </section>
 
       <section class="panel">
         <div class="panel-header">
-          <h2>Live Insights</h2>
-          <p class="panel-description">
-            Einblicke in Stimmung, Sicherheit und Online-Verhalten – in Echtzeit.
-          </p>
+          <div>
+            <h2>Live Insights</h2>
+            <p class="panel-description">
+              Einblicke in Stimmung, Sicherheit und Online-Verhalten – in Echtzeit.
+            </p>
+          </div>
+          <button class="btn ghost" id="refresh-insights">Insights aktualisieren</button>
         </div>
         <div class="grid insights" id="insights"></div>
       </section>
@@ -67,11 +83,71 @@
         <strong>Famelie Aura</strong>
         <p>Privacy by Design · Ende-zu-Ende Verschlüsselung · Transparente Kontrollen</p>
       </div>
-      <div>
-        <button class="btn ghost">Support Chat</button>
-        <button class="btn">Sicherheitscheck starten</button>
+      <div class="footer-actions">
+        <button class="btn ghost" id="support-chat">Support Chat</button>
+        <button class="btn" id="run-safety-check">Sicherheitscheck starten</button>
       </div>
     </footer>
+
+    <dialog class="modal" id="profile-modal">
+      <form method="dialog" class="modal-content" id="profile-form">
+        <header>
+          <h3>Profil hinzufügen</h3>
+          <button type="button" class="icon-btn" data-close="profile">×</button>
+        </header>
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Alter
+          <input type="number" name="age" min="3" max="18" required />
+        </label>
+        <label>
+          Gerät
+          <input type="text" name="device" required />
+        </label>
+        <label>
+          Tageslimit (Minuten)
+          <input type="number" name="limit" min="15" max="480" required />
+        </label>
+        <label>
+          Fokus heute
+          <input type="text" name="focus" required />
+        </label>
+        <menu>
+          <button class="btn ghost" type="button" data-close="profile">Abbrechen</button>
+          <button class="btn" type="submit">Profil speichern</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="rule-modal">
+      <form method="dialog" class="modal-content" id="rule-form">
+        <header>
+          <h3>Regel hinzufügen</h3>
+          <button type="button" class="icon-btn" data-close="rule">×</button>
+        </header>
+        <label>
+          Titel
+          <input type="text" name="title" required />
+        </label>
+        <label>
+          Für wen?
+          <input type="text" name="audience" required />
+        </label>
+        <label>
+          Beschreibung
+          <input type="text" name="detail" required />
+        </label>
+        <menu>
+          <button class="btn ghost" type="button" data-close="rule">Abbrechen</button>
+          <button class="btn" type="submit">Regel speichern</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="app.js"></script>
   </body>

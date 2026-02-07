@@ -1,20 +1,16 @@
 # Famelie-Aura
+# Famelie-Aura
 
-# Forteile:
+Famelie Aura ist ein visuelles MVP-Dashboard für eine Kinderschutz-App im Stil von Qustodio oder FamiSafe. Das Frontend zeigt Profile, Regeln, Schnellaktionen und Live-Insights in einem modernen Layout.
 
-# -Kostenlos
-# -Support
-# -Man kan alles melden und es wird geändert
-# -Kleine Coyunity
-# -Free :D
+## Lokales Preview
 
+```bash
+python3 -m http.server 8000
+```
 
-# Warum Famelie Aura
+Öffne anschließend <http://localhost:8000> im Browser.
 
-# -Sehr sicher
-# -leicht bedienbar
-# -3x lostenlose tariefe
-# -guter überblick
+## Hinweise
 
-
-# @2026 Lobi Gmbh [Famelie Aura]
+Dieses Repository ist ein UI-Prototyp und enthält keine echten Schutzfunktionen oder Backend-Logik. Die Bereiche sind dafür gedacht, später mit APIs für Content-Filter, Zeitlimits, Geofencing und Benachrichtigungen verbunden zu werden.
